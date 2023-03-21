@@ -1,7 +1,33 @@
-﻿@{
+﻿@Model IEnumerable<Bigschool.Models.Course>
+@{
     ViewBag.Title = "Home Page";
 }
+                      <div class="row">
+                          <ul class="course">
+                              @foreach (var course in Model)
+                              {
+                                  <li>
+                                      <div class="date">
+                                          <div class="month">
+                                              @course.DateTime.Tostring("MM")
+                                          </div>
+                                          <div class="day">
+                                              @course.DateTime.Tostring("dd")
+                                          </div>
+                                      </div>
+                                      <div class="details">
+                                          <spam class="lecturer">
+                                              @course.Lecturer.Name
+                                          </spam>
+                                          <span class="category">
+                                              @course.Category.Name
+                                          </span>
+                                      </div>
 
+                                  </li>
+                              }
+                          </ul>
+                      </div>
 <main>
     <section class="row" aria-labelledby="aspnetTitle">
         <h1 id="title">ASP.NET</h1>

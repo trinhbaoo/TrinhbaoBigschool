@@ -1,7 +1,19 @@
-﻿@model Bigschool.Models.IndexViewModel
+﻿
+@model IEnumerable<Bigschool.Models.Course>
 @{
+    ViewBag.Title = "Home Page";
     ViewBag.Title = "Manage";
 }
+<div class="row">
+    <ul>
+        @foreach (var course in Model)
+            {
+                <li>
+                    @course.DateTime - @course.Lecturer.Name
+                </li>
+            }
+    </ul>
+</div>
 
 <main aria-labelledby="title">
     <h2 id="title">@ViewBag.Title.</h2>
@@ -12,23 +24,9 @@
         <hr />
         <dl class="dl-horizontal">
             <dt>Password:</dt>
-            <dd>
-                [
-                @if (Model.HasPassword)
-                {
-                    @Html.ActionLink("Change your password", "ChangePassword")
-                }
-                else
-                {
-                    @Html.ActionLink("Create", "SetPassword")
-                }
-                ]
-            </dd>
+           
             <dt>External Logins:</dt>
-            <dd>
-                @Model.Logins.Count [
-                @Html.ActionLink("Manage", "ManageLogins") ]
-            </dd>
+            
             @*
                 Phone Numbers can used as a second factor of verification in a two-factor authentication system.
                 

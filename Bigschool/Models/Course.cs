@@ -9,9 +9,10 @@ namespace Bigschool.Models
 {
     public class Course
     {
-        public int Id { get; set; }
-        public ApplicationUser Lecturer { get; set; }
         [Required]
+        public int Id { get; set; }
+        [Required]
+        public ApplicationUser Lecturer { get; set; }
         public string LecturerId { get; set; }
         [Required]
         [StringLength(255)]
